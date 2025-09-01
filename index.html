@@ -10,22 +10,32 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #0d1117;
-      color: #e6edf3;
+      background-color: #0a0a0a; /* black background */
+      color: #e0e0e0; /* light grey text */
       line-height: 1.6;
     }
     header {
       text-align: center;
       padding: 2rem 1rem;
-      background: linear-gradient(135deg, #1f6feb, #9333ea);
+      background: linear-gradient(135deg, #b30000, #2e2e2e); /* red to grey gradient */
     }
     header h1 {
       font-size: 2.5rem;
-      margin: 0;
+      margin: 0.5rem 0 0;
       color: #fff;
     }
     header p {
-      color: #d0d7de;
+      color: #d0d0d0;
+      margin: 0.5rem 0;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #ff3333; /* red border */
+      object-fit: cover;
+      margin-top: 1rem;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
     }
     section {
       max-width: 900px;
@@ -33,28 +43,29 @@
       padding: 1rem;
     }
     h2 {
-      border-left: 4px solid #9333ea;
+      border-left: 4px solid #ff3333; /* red accent */
       padding-left: 0.5rem;
       margin-bottom: 1rem;
-      color: #58a6ff;
+      color: #ff3333;
     }
     ul {
       list-style: none;
       padding: 0;
     }
     li {
-      background: #161b22;
+      background: #1a1a1a; /* dark grey cards */
       margin: 0.5rem 0;
       padding: 1rem;
       border-radius: 8px;
       transition: 0.3s;
     }
     li:hover {
-      background: #1f6feb20;
+      background: #2e2e2e;
       transform: translateX(5px);
+      border-left: 3px solid #ff3333;
     }
     a {
-      color: #58a6ff;
+      color: #ff3333;
       text-decoration: none;
       font-weight: 600;
     }
@@ -68,17 +79,17 @@
     .socials a {
       margin: 0 1rem;
       font-size: 1.8rem;
-      color: #e6edf3;
+      color: #e0e0e0;
       transition: color 0.3s;
     }
     .socials a:hover {
-      color: #58a6ff;
+      color: #ff3333;
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background: #161b22;
-      color: #8b949e;
+      background: #1a1a1a;
+      color: #aaa;
       font-size: 0.9rem;
     }
   </style>
@@ -86,19 +97,10 @@
 <body>
 
   <header>
+    <img src="profile.jpg" alt="Kishan Gollamudi" class="profile-pic">
     <h1>👋 Hi, I'm Kishan Gollamudi</h1>
     <p>Aspiring DevOps Engineer • Cloud Enthusiast • Lifelong Learner</p>
   </header>
-
-  <section>
-    <h2>🚀 Featured Projects</h2>
-    <ul>
-      <li><b>Image Resizer with AWS Lambda</b> – Automatically resizes images uploaded to S3.</li>
-      <li><b>EC2 E-Commerce Web Server</b> – Deployed OpenCart on EC2 with EBS & Elastic IP.</li>
-      <li><b>Node.js E-Commerce App</b> – Hosted a Node.js-based web app on EC2.</li>
-      <li><b>VPC Peering Project</b> – Connected two VPCs with route tables & security groups.</li>
-    </ul>
-  </section>
 
   <section>
     <h2>🛠️ Skills</h2>
@@ -114,7 +116,6 @@
     <h2>📬 Connect with Me</h2>
     <a href="https://www.linkedin.com/in/gollamudi-kishan2498/" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a href="https://github.com/KishanGollamudi" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
   </section>
 
   <footer>
