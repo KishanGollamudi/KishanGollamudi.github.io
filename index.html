@@ -3,62 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Kishan Gollamudi - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #111;
-      color: #fff;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ddd;
+      line-height: 1.6;
     }
     header {
-      padding: 2rem;
-      background: #222;
+      background: linear-gradient(135deg, #ff0000, #333);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
     }
     header h1 {
       margin: 0;
       font-size: 2.5rem;
     }
+    header p {
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ff0000;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: #ff0000;
+    }
     .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       margin-top: 1rem;
     }
     .contact-icons a {
-      color: #bbb;
-      margin: 0 10px;
-      font-size: 1.8rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    /* ✅ Only LinkedIn & GitHub red */
-    .contact-icons a[href*="linkedin"],
-    .contact-icons a[href*="github"] {
-      color: #e63946; /* red */
+      color: #ff0000; /* Red icons */
+      font-size: 2rem;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
     .contact-icons a:hover {
-      color: #fff;
+      transform: scale(1.2);
+      color: #fff; /* White on hover */
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>My Portfolio</h1>
+    <h1>Kishan Gollamudi</h1>
+    <p>DevOps Engineer | Cloud Enthusiast | Open Source Contributor</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m <strong>Kishan Gollamudi</strong>, passionate about cloud technologies, DevOps, and automation. 
+      I love building scalable systems and exploring AWS, Azure, and GCP to create modern IT solutions.
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact Me</h2>
     <div class="contact-icons">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/your-linkedin-id" target="_blank">
+      <a href="https://www.linkedin.com/in/gollamudi-kishan2498/" target="_blank">
         <i class="fab fa-linkedin"></i>
       </a>
-      <!-- GitHub -->
-      <a href="https://github.com/your-github-id" target="_blank">
+      <a href="https://github.com/KishanGollamudi" target="_blank">
         <i class="fab fa-github"></i>
       </a>
-      <!-- Email -->
-      <a href="mailto:yourname@email.com">
-        <i class="fas fa-envelope"></i>
-      </a>
     </div>
-  </header>
+  </section>
 </body>
 </html>
