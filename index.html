@@ -13,41 +13,73 @@
       color: #ddd;
       line-height: 1.6;
     }
-    header {
-      background: linear-gradient(135deg, #ff0000, #333);
-      color: #fff;
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url("DevOps Engineer (hehim).png") no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 2rem 1rem;
+      color: white;
+      position: relative;
     }
-    header h1 {
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
       margin: 0;
-      font-size: 2.5rem;
     }
-    header p {
-      font-size: 1.2rem;
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
     }
+
     section {
-      padding: 2rem;
+      padding: 3rem 2rem;
       max-width: 900px;
       margin: auto;
     }
+
     h2 {
       border-bottom: 2px solid #ff0000;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
       color: #ff0000;
+      text-align: center;
     }
+
+    /* Contact Icons */
     .contact-icons {
       display: flex;
       justify-content: center;
       gap: 20px;
       margin-top: 1rem;
     }
+
     .contact-icons a {
       color: #ff0000; /* Red icons */
       font-size: 2rem;
       transition: transform 0.3s ease, color 0.3s ease;
     }
+
     .contact-icons a:hover {
       transform: scale(1.2);
       color: #fff; /* White on hover */
@@ -55,28 +87,24 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kishan Gollamudi</h1>
-    <p>DevOps Engineer | Cloud Enthusiast | Open Source Contributor</p>
-  </header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Kishan Gollamudi</h1>
+      <p>DevOps Engineer</p>
+    </div>
+  </section>
 
+  <!-- About Me Section -->
   <section>
     <h2>About Me</h2>
     <p>
-      Hi, I’m <strong>Kishan Gollamudi</strong>, I hold a Master’s degree in Engineering Management from Brunel University London, where I developed a strong foundation in systems thinking, project coordination, and process optimization.
-
-Currently, I’m working as a Software Engineer Trainee, and actively building hands-on experience in the DevOps and AWS Cloud ecosystem. My focus is on learning how to automate workflows, deploy cloud-native applications, and bridge development with operations using modern DevOps tools and practices.
-
-I’m gaining proficiency in tools such as GitHub Actions, Docker, Terraform, and Linux, and have been applying these in real-world inspired projects.
-
-On the cloud side, I’ve been exploring AWS services like EC2, S3, IAM, and CloudWatch, and understanding how to design scalable, secure, and automated infrastructure.
-
-My goal is to become a dynamic DevOps Engineer, combining my management background with technical skills to drive operational efficiency and continuous delivery.
-
-Always eager to learn, adapt, and contribute — let’s connect and collaborate!
+      Hi, I’m <strong>Kishan Gollamudi</strong>, passionate about cloud technologies, DevOps, and automation. 
+      I love building scalable systems and exploring AWS, Azure, and GCP to create modern IT solutions.
     </p>
   </section>
 
+  <!-- Contact Section -->
   <section>
     <h2>Contact Me</h2>
     <div class="contact-icons">
@@ -85,6 +113,9 @@ Always eager to learn, adapt, and contribute — let’s connect and collaborate
       </a>
       <a href="https://github.com/KishanGollamudi" target="_blank">
         <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:yourname@email.com">
+        <i class="fas fa-envelope"></i>
       </a>
     </div>
   </section>
