@@ -1,14 +1,553 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kishan Gollamudi – DevOps/Cloud Engineer</title>
-    <script type="module" crossorigin src="/assets/index-BUjlik6T.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Bh_-nBHS.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#221a0f">
+  <meta name="description" content="Kishan Gollamudi — DevOps and Cloud Engineer.">
+  <title>Kishan Gollamudi | DevOps / Cloud Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --space: #221a0f;
+      --text: #d3af86;
+      --muted: #a57a4c;
+      --red: #dc3958;
+      --orange: #f79a32;
+      --glass: rgba(211, 175, 134, 0.05);
+      --line: rgba(211, 175, 134, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      min-height: 100%;
+      background: var(--space);
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--space);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #scene {
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .interface {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 32px;
+      place-items: center;
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      width: 90vw;
+      max-width: 1100px;
+      max-height: 85vh;
+      max-height: 85svh;
+      padding: 3rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--glass);
+      box-shadow: 0 28px 100px rgba(34, 26, 15, 0.72), inset 0 1px 0 rgba(211, 175, 134, 0.07);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      scrollbar-color: var(--muted) rgba(211, 175, 134, 0.06);
+      scrollbar-width: thin;
+      pointer-events: auto;
+      animation: arrive 850ms cubic-bezier(.2, .75, .2, 1) both;
+    }
+
+    .card::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    .card::-webkit-scrollbar-track {
+      margin: 14px 0;
+      border-radius: 999px;
+      background: rgba(211, 175, 134, 0.06);
+    }
+
+    .card::-webkit-scrollbar-thumb {
+      border: 2px solid transparent;
+      border-radius: 999px;
+      background: var(--muted);
+      background-clip: padding-box;
+    }
+
+    .card::-webkit-scrollbar-thumb:hover {
+      background: var(--orange);
+      background-clip: padding-box;
+    }
+
+    .card::before {
+      position: absolute;
+      top: 0;
+      left: 12%;
+      width: 76%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      content: "";
+      opacity: 0.7;
+    }
+
+    .profile-photo {
+      display: block;
+      width: min(240px, 100%);
+      aspect-ratio: 4 / 5;
+      margin: 0 auto 1.5rem;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 0;
+      background: linear-gradient(110deg, var(--text) 12%, var(--orange) 66%, var(--red) 100%);
+      background-clip: text;
+      color: transparent;
+      font-size: clamp(2.35rem, 8vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -0.075em;
+      line-height: 1.02;
+      -webkit-background-clip: text;
+    }
+
+    h2 {
+      margin: 15px 0 0;
+      color: var(--text);
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .section-title {
+      margin: 28px 0 12px;
+      color: var(--orange);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .bio {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      color: #ffffff;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid rgba(211, 175, 134, 0.09);
+      border-radius: 12px;
+      background: rgba(34, 26, 15, 0.2);
+    }
+
+    .skill-group h4 {
+      margin: 0 0 9px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skill-tags li {
+      padding: 7px 10px;
+      border: 1px solid rgba(220, 57, 88, 0.34);
+      border-radius: 999px;
+      background: rgba(220, 57, 88, 0.1);
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .achievements {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      list-style: none;
+    }
+
+    .achievements li {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .achievements li::before {
+      position: absolute;
+      top: 0.62em;
+      left: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 10px rgba(220, 57, 88, 0.38);
+      content: "";
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .cta {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 0 20px;
+      border: 1px solid var(--red);
+      border-radius: 8px;
+      background: var(--red);
+      box-shadow: 0 8px 28px rgba(220, 57, 88, 0.2);
+      color: var(--space);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 34px rgba(220, 57, 88, 0.42), 0 0 26px rgba(220, 57, 88, 0.22);
+    }
+
+    .cta:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    .cta svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 180ms ease;
+    }
+
+    .cta:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .availability {
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .coordinates {
+      position: fixed;
+      right: 28px;
+      bottom: 22px;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      pointer-events: none;
+      text-transform: uppercase;
+    }
+
+    @keyframes arrive {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .interface {
+        padding: 20px;
+      }
+
+      .card {
+        padding: 30px 24px;
+        border-radius: 22px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+
+      .actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .coordinates {
+        right: 20px;
+        bottom: 12px;
+        font-size: 0.56rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <main class="interface">
+    <section class="card" aria-labelledby="name">
+      <img class="profile-photo" src="profile.jpg" alt="Portrait of Kishan Gollamudi">
+      <h1 id="name">Kishan Gollamudi</h1>
+      <h2>DevOps / Cloud Engineer</h2>
+      <section aria-labelledby="about-heading">
+        <h3 class="section-title" id="about-heading">About Me</h3>
+        <p class="bio">DevOps Engineer with approximately 2 years of experience at AJA Consulting Services LLP, building and operating cloud infrastructure on AWS (EC2, S3, RDS, IAM, VPC, EKS) and Azure (AKS). Skilled in CI/CD with Jenkins, GitHub Actions, and ArgoCD (GitOps), Infrastructure as Code (IaC) with Terraform, and containerization with Docker, Kubernetes, and Helm. Experienced in DevSecOps (SonarQube, Trivy), observability with Prometheus, Grafana, and CloudWatch, and automation with Python and Bash. Delivers zero-downtime deployments using blue-green and canary strategies, with MySQL and PostgreSQL database management.</p>
+      </section>
+
+      <section aria-labelledby="skills-heading">
+        <h3 class="section-title" id="skills-heading">Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h4>Cloud Platforms</h4>
+            <ul class="skill-tags"><li>AWS</li><li>Azure</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>AWS Services</h4>
+            <ul class="skill-tags"><li>EC2</li><li>S3</li><li>RDS</li><li>IAM</li><li>EKS</li><li>VPC</li><li>ALB</li><li>ECR</li><li>KMS</li><li>Secrets Manager</li><li>CloudWatch</li><li>Route 53</li><li>WAF</li><li>GuardDuty</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Infrastructure as Code (IaC)</h4>
+            <ul class="skill-tags"><li>Terraform</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Containers &amp; Orchestration</h4>
+            <ul class="skill-tags"><li>Docker</li><li>Kubernetes (EKS, AKS)</li><li>Helm</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>CI/CD &amp; GitOps</h4>
+            <ul class="skill-tags"><li>Jenkins</li><li>GitHub Actions</li><li>ArgoCD</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Scripting &amp; Automation</h4>
+            <ul class="skill-tags"><li>Python</li><li>Bash</li><li>PowerShell</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Observability &amp; Monitoring</h4>
+            <ul class="skill-tags"><li>Prometheus</li><li>Grafana</li><li>AWS CloudWatch</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Security &amp; DevSecOps</h4>
+            <ul class="skill-tags"><li>SonarQube (SAST)</li><li>Trivy</li><li>IAM</li><li>RBAC</li><li>Azure Key Vault</li><li>AWS Secrets Manager</li><li>KMS</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Databases</h4>
+            <ul class="skill-tags"><li>MySQL</li><li>PostgreSQL</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Networking</h4>
+            <ul class="skill-tags"><li>VPC</li><li>Load Balancers</li><li>Route 53</li><li>DNS</li><li>Security Groups</li><li>VPN</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>Version Control</h4>
+            <ul class="skill-tags"><li>Git</li><li>GitHub</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="achievements-heading">
+        <h3 class="section-title" id="achievements-heading">Key Achievements</h3>
+        <ul class="achievements">
+          <li>Reduced deployment time by 40% by optimizing Jenkins CI/CD pipelines for automated build, test, and deployment to Amazon EKS.</li>
+          <li>Implemented blue-green and canary deployment strategies, enabling zero-downtime releases.</li>
+          <li>Integrated SAST scanning and quality gates into CI/CD workflows to catch issues before production.</li>
+          <li>Deployed and managed production-grade EKS clusters with node group management and auto-scaling.</li>
+          <li>Implemented Helm charts for consistent application deployments across environments.</li>
+          <li>Established Prometheus and Grafana monitoring for proactive system health visibility.</li>
+        </ul>
+      </section>
+
+      <div class="actions">
+        <a class="cta" href="mailto:gnmskishan@gmail.com">
+          Get in touch
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div class="coordinates" aria-hidden="true">Cloud native &nbsp;·&nbsp; Always building</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    (() => {
+      const canvas = document.getElementById("scene");
+      if (!canvas || !window.THREE) return;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color("#221a0f");
+
+      const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.z = 14;
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: false,
+        powerPreference: "low-power"
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.15;
+
+      scene.add(new THREE.AmbientLight("#d3af86", 0.6));
+
+      const keyLight = new THREE.PointLight("#f79a32", 2.2, 36);
+      keyLight.position.set(-5, 4, 5);
+      scene.add(keyLight);
+
+      const cursorLight = new THREE.PointLight("#dc3958", 3.4, 28);
+      cursorLight.position.set(0, 0, 4);
+      scene.add(cursorLight);
+
+      const palette = ["#dc3958", "#f79a32", "#d3af86"];
+      const geometries = [
+        () => new THREE.TorusKnotGeometry(0.72, 0.22, 96, 12, 2, 3),
+        () => new THREE.IcosahedronGeometry(0.9, 1),
+        () => new THREE.OctahedronGeometry(0.9, 0),
+        () => new THREE.TorusGeometry(0.72, 0.18, 12, 48),
+        () => new THREE.DodecahedronGeometry(0.8, 0)
+      ];
+      const objects = [];
+      const random = (min, max) => min + Math.random() * (max - min);
+
+      for (let i = 0; i < 24; i += 1) {
+        const geometry = geometries[i % geometries.length]();
+        const material = new THREE.MeshStandardMaterial({
+          color: palette[i % palette.length],
+          roughness: 0.48,
+          metalness: 0.34,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.7
+        });
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(random(-20, 20), random(-14, 14), random(-8, 4));
+        mesh.scale.setScalar(random(0.48, 1.18));
+        mesh.rotation.set(random(0, Math.PI), random(0, Math.PI), random(0, Math.PI));
+        mesh.userData = {
+          baseY: mesh.position.y,
+          phase: random(0, Math.PI * 2),
+          speed: random(0.18, 0.48),
+          drift: random(0.12, 0.42)
+        };
+        scene.add(mesh);
+        objects.push(mesh);
+      }
+
+      const lightTarget = new THREE.Vector3(0, 0, 4);
+      const lightPosition = new THREE.Vector3(0, 0, 4);
+      let frame = 0;
+
+      window.addEventListener("pointermove", (event) => {
+        const x = (event.clientX / window.innerWidth) * 2 - 1;
+        const y = -(event.clientY / window.innerHeight) * 2 + 1;
+        lightTarget.set(x * 7, y * 5, 4);
+      }, { passive: true });
+
+      window.addEventListener("resize", () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setSize(width, height);
+      }, { passive: true });
+
+      const clock = new THREE.Clock();
+      const animate = () => {
+        frame = window.requestAnimationFrame(animate);
+        const elapsed = clock.getElapsedTime();
+        objects.forEach((object) => {
+          const { baseY, phase, speed, drift } = object.userData;
+          object.rotation.x += 0.0018 * speed * 3;
+          object.rotation.y += 0.003 * speed * 3;
+          object.position.y = baseY + Math.sin(elapsed * speed + phase) * drift;
+        });
+        lightPosition.lerp(lightTarget, 0.045);
+        cursorLight.position.copy(lightPosition);
+        renderer.render(scene, camera);
+      };
+
+      animate();
+
+      window.addEventListener("pagehide", () => {
+        window.cancelAnimationFrame(frame);
+        renderer.dispose();
+        objects.forEach((object) => {
+          object.geometry.dispose();
+          object.material.dispose();
+        });
+      }, { once: true });
+    })();
+  </script>
+</body>
 </html>
