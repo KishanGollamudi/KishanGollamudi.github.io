@@ -440,11 +440,6 @@
       transform: translate(2px, -2px);
     }
 
-    .availability {
-      color: var(--muted);
-      font-size: 0.76rem;
-    }
-
     .coordinates {
       position: fixed;
       right: 28px;
@@ -623,28 +618,28 @@
           <!-- Project 2: Forward Deployment Project (FDE) -->
           <div class="project-card">
             <div class="project-header">
-              <h4 class="project-title">Forward Deployment Project (FDE)</h4>
+              <h4 class="project-title">Forward Deployment Project (AI / RAG)</h4>
               <div class="project-badges">
-                <span class="badge badge-orange">Enterprise</span>
-                <span class="badge badge-subtle">Cloud Architecture</span>
+                <span class="badge badge-orange">RAG Pipeline</span>
+                <span class="badge badge-subtle">FastAPI &amp; Docker</span>
               </div>
             </div>
-            <div class="project-subtitle">Automated Client Infrastructure, GitOps &amp; Zero-Trust Deployment</div>
+            <div class="project-subtitle">AI Product Assistant &amp; Vector Search Reverse-Proxy System</div>
             <p class="project-desc">
-              Production forward-deployed engineering architecture designed to deploy, configure, and operate client-facing cloud systems in isolated enterprise environments. Features codified infrastructure provisioning, strict security guardrails, GitOps synchronization, and end-to-end deployment orchestration.
+              A containerized GenAI integration deployed on AWS EC2, embedding an intelligent RAG assistant into OWASP Juice Shop. Employs an Nginx reverse proxy to inject a vanilla JS chat client at runtime, routing product queries to a FastAPI service backed by ChromaDB vector similarity search and OpenAI gpt-4o-mini.
             </p>
             <ul class="project-features">
-              <li><strong>Repeatable Environment Onboarding:</strong> Modular Infrastructure as Code (IaC) enabling rapid bootstrapping of multi-tier client clusters across staging and production.</li>
-              <li><strong>Automated GitOps Pipelines:</strong> Continuous reconciliation and canary rollout strategies ensuring zero downtime and drift detection across workloads.</li>
-              <li><strong>Zero-Trust Hardening &amp; Compliance:</strong> Integrated secret management, RBAC policy enforcement, container vulnerability scanning, and centralized audit telemetry.</li>
+              <li><strong>Runtime Client Injection:</strong> Leveraged Nginx <code>sub_filter</code> to inject an AI widget directly into legacy web pages without altering upstream application code.</li>
+              <li><strong>Targeted RAG Architecture:</strong> Engineered a vector retrieval pipeline using ChromaDB embeddings to ground LLM responses strictly in catalog and pricing data.</li>
+              <li><strong>Containerized EC2 Deployment:</strong> Configured multi-container orchestration via Docker Compose on AWS EC2 (Ubuntu 24.04), complete with health monitoring and automated ingestion.</li>
             </ul>
             <ul class="project-tags">
-              <li>Terraform</li>
-              <li>Kubernetes</li>
-              <li>Docker</li>
-              <li>CI/CD &amp; GitOps</li>
-              <li>Security &amp; RBAC</li>
-              <li>Cloud Architecture</li>
+              <li>FastAPI (Python)</li>
+              <li>Docker Compose</li>
+              <li>AWS EC2</li>
+              <li>Nginx</li>
+              <li>ChromaDB</li>
+              <li>OpenAI API</li>
             </ul>
             <div class="project-links">
               <a class="project-btn" href="https://github.com/KishanGollamudi/Forward-Deployment-Project" target="_blank" rel="noopener noreferrer">
@@ -653,11 +648,11 @@
                 </svg>
                 View Repository
               </a>
-              <a class="project-btn" href="mailto:gnmskishan@gmail.com?subject=Inquiry:%20Forward%20Deployment%20Engineering%20Collaboration">
+              <a class="project-btn" href="mailto:gnmskishan@gmail.com?subject=Inquiry:%20FDE%20/%20RAG%20Assistant%20Project">
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
                   <path d="M2.5 5.5A1.5 1.5 0 014 4h12a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5H4a1.5 1.5 0 01-1.5-1.5v-9zM3.5 5.5l6.5 4.5 6.5-4.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                Discuss Deployment
+                Discuss Project
               </a>
             </div>
           </div>
@@ -736,7 +731,6 @@
       const objects = [];
       const random = (min, max) => min + Math.random() * (max - min);
 
-      // Distribute shapes outside the central card zone so they remain visible
       for (let i = 0; i < 28; i += 1) {
         const geometry = geometries[i % geometries.length]();
         const material = new THREE.MeshStandardMaterial({
@@ -750,7 +744,6 @@
 
         const mesh = new THREE.Mesh(geometry, material);
         
-        // Push shapes toward left/right flanks and top/bottom peripheries
         const side = Math.random() > 0.5 ? 1 : -1;
         const xPos = side * random(7, 24);
         const yPos = random(-16, 16);
@@ -776,7 +769,6 @@
       const lightPosition = new THREE.Vector3(0, 0, 5);
       let frame = 0;
 
-      // Track cursor across whole document
       document.addEventListener("pointermove", (event) => {
         const x = (event.clientX / window.innerWidth) * 2 - 1;
         const y = -(event.clientY / window.innerHeight) * 2 + 1;
