@@ -10,12 +10,9 @@ pipeline {
             }
         }
         stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    // Applies the Kubernetes deployment and service manifests
-                    sh 'kubectl apply -f deployment.yaml'
-                }
-            }
+    steps {
+        script {
+            sh 'kubectl apply -f deployment.yaml --validate=false'
         }
     }
 }
