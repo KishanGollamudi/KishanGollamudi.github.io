@@ -12,7 +12,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    sh 'kubectl apply -f deployment.yaml --validate=false'
+                    // Applies manifests using the explicit cluster server and container kubeconfig path
+                    sh 'kubectl apply -f deployment.yaml --server=https://172.30.1.2:6443 --kubeconfig=/var/jenkins_home/.kube/config --validate=false'
                 }
             }
         }
