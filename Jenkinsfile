@@ -1,15 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/KishanGollamudi/KishanGollamudi.github.io.git'
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Builds the Docker image locally on the server container
+                    // Builds the Docker image locally using the automatically checked-out code
                     sh 'docker build -t portfolio-app:latest .'
                 }
             }
